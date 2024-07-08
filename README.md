@@ -6,3 +6,5 @@ Virtual Business Card/ portfolio page.
 - To edit content , head to sections div and inside copy div, edit the paragraph.
 - To change the styling , head to stylesheet.css and edit the colors of the corresponding sections
 
+###### Purpose
+Wanted to toy around with mobile responsiveness and recreate  sticky section. Inspired by @RedStapler,@SnoklV and @Codegrid on YouTube
