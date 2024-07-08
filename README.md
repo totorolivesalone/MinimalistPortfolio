@@ -1,5 +1,7 @@
 ## Minimalist Portfolio Theme
 Virtual Business Card/ portfolio page.
+[Live](https://totorolivesalone.github.io/MinimalistPortfolio/)
+
 ##### How to use
 - To change colors of sections, head to stylesheet.css file and :root section
 - To reduce number of sections in webpage, head to index.html and within maps, remove unnecessary divs with class name s-xyz and similarly go to sections div and make appropriate changes
