@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css" >
+</head>
+<body>
+    <div class="container">
+        <div class="map">
+            <div class="s-1">
+                <p>01</p>
+                <p>Intro</p>
+
+            </div>
+            <div class="s-2">
+                <p>02</p>
+                <p>Education</p>
+            
+            </div>
+            <div class="s-3">
+                <p>03</p>
+                <p>Experience</p>
+            
+            </div>
+            <div class="s-4">
+                <p>04</p>
+                <p>Project</p>
+            
+            </div>
+            <div class="s-5">
+                <p>05</p>
+                <p>Skills</p>
+            
+            </div>
+            <div class="s-6">
+                <p>06</p>
+                <p>Achievements</p>
+            
+            </div>
+            <div class="s-7">
+                <p>07</p>
+                <p>Contact</p>
+            
+            </div>
+            
+        </div>
+        <div class="sections">
+            <div class="section-1 sec">
+                <div class="header">
+                    <p>01</p>
+                    <p>Intro</p>
+                </div>
+                <div class="copy">
+                    <h1>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua.
+                    </h1>
+                </div>
+            </div>
+            <div class="section-2 sec">
+                <div class="header">
+                    <p>02</p>
+                    <p>Education</p>
+                </div>
+                <div class="copy">
+                    <h1>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna
+                        aliqua.
+                    </h1>
+                </div>
+            </div>
+            <div class="section-3 sec">
+                <div class="header">
+                    <p>03</p>
+                    <p>Experience</p>
+                </div>
+                <div class="copy">
+                    <h1>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna
+                        aliqua.
+                    </h1>
+                </div>
+            </div>
+            <div class="section-4 sec">
+                <div class="header">
+                    <p>04</p>
+                    <p>Project</p>
+                </div>
+                <div class="copy">
+                    <h1>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna
+                        aliqua.
+                    </h1>
+                </div>
+            </div>
+            <div class="section-5 sec">
+                <div class="header">
+                    <p>05</p>
+                    <p>Skills</p>
+                </div>
+                <div class="copy">
+                    <h1>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna
+                        aliqua.
+                    </h1>
+                </div>
+            </div>
+            <div class="section-6 sec">
+                <div class="header">
+                    <p>06</p>
+                    <p>Achievements</p>
+                </div>
+                <div class="copy">
+                    <h1>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna
+                        aliqua.
+                    </h1>
+                </div>
+            </div>
+            <div class="section-7 sec">
+                <div class="header">
+                    <p>07</p>
+                    <p>Contact</p>
+                </div>
+                <div class="copy">
+                    <h1>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna
+                        aliqua.
+                    </h1>
+                </div>
+            </div>
+            <div class="section-8 sec">
+                <div class="header">
+                    <p>08</p>
+                    <p>Signing off</p>
+                </div>
+                <div class="copy">
+                    <h1>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna
+                        aliqua.
+                       
+
+                    </h1>
+                </div>
+            </div>
+            <div class="whitespace"></div>
+        </div>
+        
+    </div>
+    
+   
+    <script>
+        const mapDivs=document.querySelectorAll(".map>div");
+        const sectionDivs=document.querySelectorAll(".sections> .sec")
+        const sectionHeights=[];
+        const accumulatedHeights=[];
+        const RATIO=0.5;
+        let accumulatedHeight=0;
+        sectionDivs.forEach((section)=>{
+            const height=section.clientHeight;
+            sectionHeights.push(height*RATIO);
+            accumulatedHeight+=height;
+            accumulatedHeights.push(accumulatedHeight);
+        })
+        let lastActiveIndex=-1;
+        function updateMapHeights(scrollPos){
+            for(let i =0 ;i<accumulatedHeights.length;i++){
+                if(i===0 && scrollPos<accumulatedHeights[i]){
+                    if(lastActiveIndex!==i){
+                        if(lastActiveIndex>=0){
+                            mapDivs[lastActiveIndex].style.height="100px";
+                        }
+                        mapDivs[i].style.height=`${sectionHeights[i]}px`;
+                        lastActiveIndex=i;
+                    }
+                    break;
+                }else if(i>0 && scrollPos>=accumulatedHeights[i-1] && scrollPos< accumulatedHeights[i]){
+                    if(lastActiveIndex!==i){
+                        if(lastActiveIndex>=0){
+                            mapDivs[lastActiveIndex].style.height="100px"
+                        }
+                        mapDivs[i].style.height=`${sectionHeights[i]}px`;
+                        lastActiveIndex=i;
+                    }
+                    break;
+                }
+            }
+        }
+        const sectionsTotalHeight=[...sectionDivs].reduce(
+            (sum,section)=>sum+section.clientHeight,0
+        )
+        const mapTotalHeight=
+        [...mapDivs].reduce((sum,mapDiv)=>sum+mapDiv.clientHeight,0)+(mapDivs.length-1)*75;
+        const sectionsScrollableHeight=sectionsTotalHeight-window.innerHeight;
+        const mapScrollableHeight=mapTotalHeight-window.innerHeight;
+        const scrollRatio=mapScrollableHeight/sectionsScrollableHeight;
+        window.addEventListener("scroll",()=>{
+            const scrollPos=window.scrollY;
+            const mapTranslateY=scrollPos*scrollRatio;
+            document.querySelector(".map").style.transform=`translateY(-${mapTranslateY}px)`;
+            updateMapHeights(scrollPos);
+            updateMapHeights(scrollPos);
+        })
+        window.addEventListener("load",()=>{
+            w=window.screen.availWidth;
+            h=window.screen.availHeight;
+            if(w<320 ){
+                document.write("Your device is too slim. View the website in desktop mode on your browser.")
+            }
+
+        })
+    </script>
+    
+</body>
+</html>

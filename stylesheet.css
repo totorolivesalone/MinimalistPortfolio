@@ -1,0 +1,220 @@
+:root{
+    --color-bg:beige;
+    --color-section-1:#95e7e4;
+    --color-section-2:#066f6c;
+    --color-section-3:#5922cc;
+    --color-section-4:#000;
+    --color-section-5:#C80036;
+    --color-section-6:#FFB1B1;
+    --color-section-7:#E7F0DC;
+    --color-section-8:#55AD9B;
+
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html,body{
+    width:100%;
+    height:100%;
+    font-family:"PP Supply Sans",sans-serif;
+    background:var(--color-bg);
+
+}
+.container{
+    width:100%;
+    height:100%;
+
+}
+.map{
+    position:fixed;
+    width:20%;
+    margin:50px 0;
+    padding:0 20px;
+}
+.sections{
+    position: absolute;
+    width:80%;
+    height:100%;
+    left:20%;
+    padding:30px 20px  0 0;
+
+}
+.map>div{
+    height:100px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding:20px;
+    border:1.5px solid #000;
+    border-radius: 20px;
+    transition:height 0.5s;
+
+}
+.sections > div{
+    width:100%;
+    margin:20px 0 80px 0;
+
+
+}
+.header{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding:10px 25px;
+    border:1.5px solid #000;
+    border-radius: 40px;
+    font-size: 14px;
+    
+}
+.map>div p:nth-child(1){
+    font-size: 13px;
+    
+}
+.map> div p:nth-child(2){
+    font-size: 20px;
+    
+    
+}
+.copy{
+    width:100%;
+    height:100%;
+    padding:20px;
+    border:1.5px solid #000;
+    border-radius: 20px;
+    overflow-y: scroll;
+    overscroll-behavior-block: contain;
+}
+.copy h1{
+    font-weight: 300;
+    font-size:60px;
+    
+}
+.section-1{
+    height:500px;
+    
+
+}
+.section-2{
+    height:500px;
+    
+}
+.section-3 {
+    height: 500px;
+
+}
+.section-4 {
+    height: 500px;
+
+}
+.section-5 {
+    height: 500px;
+
+}
+.section-6 {
+    height: 500px;
+
+}
+.section-7 {
+    height: 500px;
+
+}
+.section-8 {
+    height: 500px;
+
+}
+.whitespace{
+    width: 100%;
+    height:100%;
+    border:none !important;
+}
+.s-1, .section-1 .header,.section-1 .copy{
+    background-color: var(--color-section-1);
+}
+.s-2,
+.section-2 .header,
+.section-2 .copy {
+    background-color: var(--color-section-2);
+    color: #fff;
+}
+.s-3,
+.section-3 .header,
+.section-3 .copy {
+    background-color: var(--color-section-3);
+    color: #fff;
+}
+.s-4,
+.section-4 .header,
+.section-4 .copy {
+    background-color: var(--color-section-4);
+    color:white;
+}
+.s-5,
+.section-5 .header,
+.section-5 .copy {
+    background-color: var(--color-section-5);
+    color:#fff;
+}
+.s-6,
+.section-6 .header,
+.section-6 .copy {
+    background-color: var(--color-section-6);
+    color: #000;
+}
+.s-7,
+.section-7 .header,
+.section-7 .copy {
+    background-color: var(--color-section-7);
+}
+.s-8,
+.section-8 .header,
+.section-8 .copy {
+    background-color: var(--color-section-8);
+}
+@media only screen and (max-width:900px){
+    .map>div p:nth-child(2) {
+            
+            display:none;
+    
+    
+        }
+        .copy h1 {
+            font-weight: 300;
+            font-size: 40px;}
+    
+}
+@media only screen and (max-width:400px) {
+    
+
+    .copy h1 {
+        font-weight: 300;
+        font-size: 20px;
+    }
+
+}
+/* ScrollBars */
+/* Scroll */
+::-webkit-scrollbar {
+    width: 11px;
+
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background: #f0f0f0;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background: greenyellow;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.08);
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover,
+::-webkit-scrollbar-thumb:vertical:hover {
+    background: #555353;
+}
